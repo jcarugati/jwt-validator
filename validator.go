@@ -35,7 +35,7 @@ var (
 
 func ValidateToken(fulltoken string, keyfunc jwt.Keyfunc, validations Validations) (map[string]any, error) {
 
-	jwtToken := strings.Split(fulltoken, "Bearer ")[1]
+	jwtToken := strings.Split(fulltoken, " ")[1]
 
 	parsedToken, err := jwt.Parse(jwtToken, keyfunc)
 	if err != nil {
