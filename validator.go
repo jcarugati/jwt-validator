@@ -48,7 +48,7 @@ func ValidateToken(fulltoken string, keyfunc jwt.Keyfunc, validations Validation
 	}
 
 	if err := validClaims(claims, validations); err != nil {
-		return nil, errors.Wrap(ErrInvalidClaims, err.Error())
+		return claims, errors.Wrap(ErrInvalidClaims, err.Error())
 	}
 
 	return claims, nil
